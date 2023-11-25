@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import './LoginSignUp.css'
-import logo from '../assets/logo.png'
-import LoginBg from '../assets/loginBg.png'
-import RegisterBg from '../assets/registerBg.png'
-import AuthContext from '../../context/AuthProvidor';
+import logo from '../../assets/logo.png'
+import LoginBg from '../../assets/loginBg.png'
+import RegisterBg from '../../assets/registerBg.png'
+import AuthContext from '../../context/AuthProvidor'
 import axios from 'axios';
-<a href="https://storyset.com/user">User illustrations by Storyset</a>
+import { Navigate,useHistory } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+{/* <a href="https://storyset.com/user">User illustrations by Storyset</a> */}
 
 
 export const LoginSignUp = () => {
     const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
     const errRef = useRef();
+    const history = useHistory();
 
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
@@ -97,6 +100,8 @@ export const LoginSignUp = () => {
                 }
                 else if (response.data === 1)
                 {
+                    localStorage.setItem('username', user);
+                    history.push('/');
                     setSuccess(true);
                 }
                 else
@@ -112,30 +117,6 @@ export const LoginSignUp = () => {
               setPwd('');
 
             setAuth({user, pwd})
-            //console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            //const accessToken = response?.data?.accessToken;
-            //const roles = response?.data?.roles;
-            //setAuth({ user, pwd, roles, accessToken });
-        
-        /*catch (err) {
-            if (!err?.response) {
-                setErrMsg('Server is not responding. try again later..');
-            }
-            else if (err.response?.status === 400)
-            {
-                setErrMsg('Missing username or password');
-            }
-            else if (err.response?.status === 401)
-            {
-                setErrMsg('Unauthorized!');
-            }
-            else
-            {
-                setErrMsg('Login Failed');
-            }
-            errRef.current.focus();
-        }*/
       }
   return (
     <>
@@ -248,4 +229,3 @@ export const LoginSignUp = () => {
         </>
   )
 }
-

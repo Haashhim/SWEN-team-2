@@ -10,7 +10,17 @@ main{
     justify-content: center;
 
 }
+.main-driver{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #cfefff;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
 .box{
     position: relative;
     width: 100%;
@@ -214,6 +224,21 @@ main.sign-up-mode .carousel {
     border-radius: 2rem;
     transition: .8s ease-in-out;
 }
+.carousel_driver{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    height: 100%;
+    width: 55%;
+    top: 0;
+    left: 45%;
+    background-color: #00277b;
+    border-radius: 2rem;
+    transition: .8s ease-in-out;
+}
 
 .image{
     width: 100%;
@@ -230,3 +255,42 @@ main.sign-up-mode .carousel {
     color: #00277b;
     font-weight: 200;
 }
+
+.user_login{
+    position: absolute;
+    bottom: 50px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.user_login .text{
+    color: #bbb;
+    font-size: 1rem;
+}
+
+.user_login .text a{
+    color:#fff;
+    transition: .3s;
+    text-decoration: none;
+}
+
+/*  Driver Login */
+
+.driver_login{
+    position: absolute;
+    bottom: 50px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.driver_login .text{
+    color: #bbb;
+    font-size: 1rem;
+}
+
+.driver_login .text a{
+    color:#00277b;
+    transition: .3s;
+    text-decoration: none;
+}
+
