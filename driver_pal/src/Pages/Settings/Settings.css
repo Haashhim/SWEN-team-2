@@ -1,0 +1,147 @@
+.settings{
+    width: 100%;
+    min-height: 90vh;
+    overflow: hidden;
+    background-color: transparent;
+    padding-right: 20px;
+    padding-top: 3rem;
+}
+.profile-content{
+    position: relative;
+    height: 40vh;
+    width: 80%;
+    background-color: transparent;
+    margin-left: 300px;
+}
+ .top-bar{
+    position: absolute; 
+    height: 25vh;
+    background-color: #cfefff;
+    background-image: url('../../assets/settingsBg.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+    width: 100%;
+    left: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 230px;
+    padding-top: 50px;
+}
+
+
+.profile{
+    position: absolute;
+    bottom:25%;
+    left: 50px;
+    width: 170px;
+    height: 200px;
+    padding: 35px 15px 0px 15px;
+    background-color: rgb(255, 218, 166);
+    border-radius: 25px;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+}
+
+.p-image{
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    background-image: url('../../assets/male1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ptext{
+    padding-left: 30px;
+}
+
+.ptext h3{
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.ptext .work{
+    display: flex;
+    justify-content: start;
+    font-size: 1rem;
+}
+
+.ptext .work h5{
+    margin-right: 15px;
+    font-weight: 400;
+}
+
+.setting-content{
+    height: 45vh;
+    width: 80%;
+    margin-left: 300px;
+    /* background-color: red; */
+}
+
+.settings-form{
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: none;
+}
+
+/* .setting-content form{
+    width: 100%;
+    background-color: red;
+    
+} */
+
+.setting-content .row{
+    width: 100%;
+    /* background-color: orange; */
+    height:90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-content .row .input-box{
+    height: 100%;
+    /* background-color: aquamarine; */
+    width: 100%;
+
+}
+
+.setting-content .row h3{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #151111;
+    margin-bottom: 20px;
+}
+.setting-content .row .input-box input{
+    font-weight: 600;
+    width: 350px;
+    height: 50px;
+    outline: none;
+    border: none;
+    text-align: center;
+    background-color: rgb(235, 235, 235);
+}
+
+.save-changes{
+    margin-top: 20px;
+    margin-left: 25%;
+    justify-content: center;
+    width: 15%;
+    height: 50px;
+    background-color: #151111;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    font-size: .8rem;
+    margin-bottom: 2rem;
+    transition: .3s;
+}
+
+
