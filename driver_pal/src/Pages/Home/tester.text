@@ -1,0 +1,239 @@
+// const MapComponent = () => {
+//     const mapContainer = useRef(null);
+  
+//     useEffect(() => {
+//       mapboxgl.accessToken = 'pk.eyJ1IjoiaGFhc2hpbSIsImEiOiJja3k1eWF1MWgwb241Mm5veXcyZXh6NWw5In0.cA1NOC68hRLi3mFOJRb5yw';
+//       const map = new mapboxgl.Map({
+//         container: mapContainer.current,
+//         style: 'mapbox://styles/mapbox/streets-v11',
+//         center: [-74.5, 40],
+//         zoom: 9,
+//       });
+  
+//       // Clean up on component unmount
+//       return () => map.remove();
+//     }, []); // Empty dependency array means this effect runs once after the initial render
+  
+//     return <div ref={mapContainer} style={{ width: '100%', height: '400px' }} />;
+//   };
+
+
+
+
+// /*
+
+
+
+//   import {React, useState, useRef, useEffect} from 'react'
+//   import './Home.css'
+//   import Map, { GeolocateControl } from "react-map-gl";
+//   import "mapbox-gl/dist/mapbox-gl.css";
+//   import SearchBox from '../../components/SearchBar/SearchBox';
+//   import {CarType } from './CarType'
+//   import Sedan from '../../assets/SEDAN.png'
+  
+//   import mapboxgl from 'mapbox-gl';
+//   import 'mapbox-gl/dist/mapbox-gl.css';
+  
+//   function Home() {
+//     const [isInputFocused, setCarTypeIndex] = useState(0);
+//     const startingCoordinates = [-74.5, 40];
+//     const endingCoordinates = [-74.6, 40];
+  
+//     const MapComponent = ({ startingCoordinates, endingCoordinates }) => {
+//       const mapContainer = useRef(null);
+    
+//       useEffect(() => {
+//         mapboxgl.accessToken = 'pk.eyJ1IjoiaGFhc2hpbSIsImEiOiJja3k1eWF1MWgwb241Mm5veXcyZXh6NWw5In0.cA1NOC68hRLi3mFOJRb5yw';
+//         const map = new mapboxgl.Map({
+//           container: mapContainer.current,
+//           style: 'mapbox://styles/mapbox/streets-v11',
+//           center: [55.3894934, 25.1312747],
+//           // longitude: 55.38949342464493,
+//           // latitude: 25.13127479878864,
+//           zoom: 9,
+//         });
+  
+//         // const bounds = [
+//         //   [-123.069003, 45.395273],
+//         //   [-122.303707, 45.612333]
+//         // ];
+//         // map.setMaxBounds(bounds);
+    
+//         // Check if the style is fully loaded
+//         map.on('load', () => {
+//           // Add controls only when the style is loaded
+//           map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+    
+//           // Add a source and layer for the directions route
+//           map.addSource('route', {
+//             type: 'geojson',
+//             data: {
+//               type: 'Feature',
+//               properties: {},
+//               geometry: {
+//                 type: 'LineString',
+//                 coordinates: [], // Your initial coordinates
+//               },
+//             },
+//           });
+    
+//           map.addLayer({
+//             id: 'route',
+//             type: 'line',
+//             source: 'route',
+//             layout: {
+//               'line-join': 'round',
+//               'line-cap': 'round',
+//             },
+//             paint: {
+//               'line-color': '#888',
+//               'line-width': 8,
+//             },
+//           });
+    
+//           // Handle user input to get directions
+//           const getDirections = async () => {
+//             // Make a request to the Mapbox Directions API
+//             const response = await fetch(
+//               `https://api.mapbox.com/directions/v5/mapbox/driving/${startingCoordinates.join(',')};${endingCoordinates.join(',')}?access_token=${mapboxgl.accessToken}`
+//               );
+    
+//             const data = await response.json();
+    
+//             // Update the route source with the new coordinates
+//             map.getSource('route').setData({
+//               type: 'Feature',
+//               properties: {},
+//               geometry: {
+//                 type: 'LineString',
+//                 coordinates: data.routes[0].geometry.coordinates,
+//               },
+//             });
+//           };
+    
+//           // Call getDirections when needed (e.g., after user input)
+//           getDirections();
+//         });
+        
+//         // Clean up on component unmount
+//         return () => map.remove();
+//       }, []); // Empty dependency array means this effect runs once after the initial render
+    
+//       return <div ref={mapContainer} style={{ width: '100%', height: '100%' }} />;
+//     };
+    
+//     return (
+//       <div className="home">
+//          {/* <div className='dashboard'>
+//           <div className='dash'></div>
+//           <div className='dash'></div>
+//           <div className='dash'></div>
+//           <div className='dash'></div>
+//          </div> */}
+//          <div className="main">
+//           <div className="left">
+//               <h3>Order</h3>
+//               <div className="left-content">
+//               <h3 className="dest-text">Where from?</h3>
+//               <SearchBox/>
+//               <h3 className="dest-text">Where to?</h3>
+//               <SearchBox/>
+//               <div className="work-type">
+//                 <a href="#">Home</a>
+//                 <a href="#">Work</a>
+//                 <a href="#">Mobile</a>
+//               </div>
+//               <h3 className="dest-text black">Payement Method</h3>
+//               <div className="payement-types">
+//                 <div className="payement-item">Credit</div>
+//                 <div className="payement-item">Cash</div>
+//               </div>
+//               <h3 className="dest-text black">Select Car</h3>
+//               <div className="car-types">
+//               {CarType.map((item, index) => {
+//                 console.log(item);
+//                 return (
+//                   <div className="car-item">
+//                   <img src={item.car_image} alt="" />
+//                   <h3 className='car-text'>{item.car_name}</h3>
+//                 </div>
+//                 );
+//               })} 
+               
+//                 {/* <div className="car-item">
+//                   <img src={Sedan} alt="" />
+//                   <h3 className='car-text'>Sedan</h3>
+//                 </div>
+//                 <div className="car-item">
+//                   <img src={Sedan} alt="" />
+//                   <h3 className='car-text'>Sedan</h3>
+//                 </div>
+//                 <div className="car-item">
+//                   <img src={Sedan} alt="" />
+//                   <h3 className='car-text'>Sedan</h3>
+//                 </div>
+//                 <div className="car-item">
+//                   <img src={Sedan} alt="" />
+//                   <h3 className='car-text'>Sedan</h3>
+//                 </div> */}
+//               </div>
+//               </div>
+//           </div>
+//           <div className="right-map">
+//               <h3>Map</h3>
+//               <div className="right-content map">
+             
+//               {/* <Map
+//                   mapboxAccessToken="pk.eyJ1IjoiaGFhc2hpbSIsImEiOiJja3k1eWF1MWgwb241Mm5veXcyZXh6NWw5In0.cA1NOC68hRLi3mFOJRb5yw"
+                  
+//                   initialViewState={{
+//                     // longitude: 55.38948269677156,
+//                     // latitude: 25.13136707428577,
+//                     longitude: 55.38949342464493,
+//                     latitude: 25.13127479878864,
+                    
+//                     zoom: 15,
+//                   }}
+//                   mapStyle="mapbox://styles/mapbox/dark-v11"
+//                   //mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
+//                   // mapStyle="mapbox://styles/mapbox/outdoors-v12"
+//                   // https://api.mapbox.com/geocoding/v5/mapbox.places/starbucks.json?bbox=-77.083056,38.908611,-76.997778,38.959167&access_token=pk.eyJ1IjoiaGFhc2hpbSIsImEiOiJja3k1eWF1MWgwb241Mm5veXcyZXh6NWw5In0.cA1NOC68hRLi3mFOJRb5yw 
+  
+//                   >
+  
+//               </Map> */}
+//             <MapComponent startingCoordinates={startingCoordinates} endingCoordinates={endingCoordinates} />
+             
+//               </div>
+//           </div>
+//          </div>
+//       </div>
+//     )
+//   }
+  
+//   export default Home
+  
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Radius of the earth in km
+  const dLat = deg2rad(lat2 - lat1);
+  const dLon = deg2rad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c; // Distance in km
+  return distance;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+
+// Calculate zoom level based on distance (you may need to adjust this based on your specific requirements)
+function calculateZoomLevel(distance) {
+  const baseZoom = 10; // Adjust this as needed
+  const zoomScale = 1; // Adjust this as needed
+  const zoomLevel = baseZoom - Math.log2(distance) * zoomScale;
+  return zoomLevel;
+}

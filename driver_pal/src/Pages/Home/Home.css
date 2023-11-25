@@ -1,0 +1,222 @@
+.home{
+    width: 100%;
+    min-height: 90vh;
+    /* background-color: rebeccapurple; */
+    padding-right: 20px;
+    padding-left: 300px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+
+}
+
+.dashboard{
+    height: 15vh;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* background-color: #e7e7e7; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    margin-bottom: 25px;
+}
+
+
+.dash{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 20px 20px 50px rgba(215, 215, 215, 0.341);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash h3{
+    font-weight: 500;
+    color: #000;
+    font-size: 1rem;
+}
+.dash h4{
+    font-weight: 800;
+    color: #00277b;
+    font-size: 1.5rem;
+}
+
+
+.main{
+    width: 100%;
+    height: 80vh;
+    /* background-color: white;
+    box-shadow: 20px 20px 50px rgba(215, 215, 215, 0.341); */
+    display: flex;
+    padding-top: 50px;
+    justify-content: space-between;
+}
+
+.left{
+    width: 40%;
+    height: 100%;
+}
+
+.left .left-content{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 20px 10px 50px rgba(25, 62, 228, 0.192);
+    border-radius: 25px;
+    border: 1px solid #bdbdbd;
+    padding: 10px 25px;
+
+
+}
+
+.left h3, .right-map h3{
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.left-content .dest-text{
+    font-size: 1.2rem;
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+    color: #8e8e8e;
+    /* background-color: red; */
+}
+.left-content .dest-text.black{
+    color: #000;
+}
+
+.left-content .work-type{
+    width: 100%;
+    height: 25px;
+    /* background-color: #bdbdbd; */
+    margin-top: 20px;
+
+}
+
+.work-type a:nth-child(1){
+    text-decoration: none;
+    outline: none;
+    padding: 10px 20px;
+    background-color: #00277b;
+    color: #fff;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.work-type a:nth-child(2), .work-type a:nth-child(3){
+    text-decoration: none;
+    outline: none;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #000;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.left-content .payement-types{
+    height:50px;
+    width: 100%;
+    /* background-color: #bdbdbd; */
+    display: flex;
+}
+
+.payement-types .payement-item{
+    width: 80px;
+    height: 100%;
+    text-decoration: none;
+    text-align: center;
+    outline: none;
+    background-color: #fff;
+    color: #00277b;
+    margin-right: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00277b;
+}
+
+
+.left-content .car-types{
+    height:100px;
+    width: 100%;
+    /* background-color: #bdbdbd; */
+    display: flex;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width:auto;
+}
+
+.left-content::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+/* .left-content .car-types div{
+    width: 200px;
+    height: 100%;
+    margin-right: 15px;
+} */
+
+.left-content .car-types .car-item{
+    width: 120px;
+    height: 100%;
+    margin-right: 15px;
+    background-color: #ededed;
+    text-align: center;
+    padding: 15px;
+}
+.car-item::-webkit-scrollbar {
+    width: 6px; /* Set the width of the scrollbar */
+  }
+
+.left-content .car-types .car-item img{
+    width: 100px;
+    height: 65%;
+    background-size: contain;
+    /* background-color: yellowgreen; */
+}
+
+
+.left-content .car-types div .car-image{
+    width: 120px;
+    height: 70%;
+    background-color: beige;
+}
+ .car-types .car-text{
+    font-size: 1rem;
+    color: #000;
+ }
+
+
+
+.right-map{
+    width: 55%;
+    height: 100%;
+}
+
+.right-map .right-content{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 20px 10px 50px rgba(25, 62, 228, 0.192);
+    border-radius: 25px;
+    border: 1px solid #bdbdbd;
+    overflow: hidden;
+}
+
