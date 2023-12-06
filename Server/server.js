@@ -106,6 +106,18 @@ app.get("/data", async(req, res) => {
   }
 });
 
+app.get("/events", async(req, res) => {
+  const query = "SELECT * FROM events;";
+  connection.query(query, (err, rows) => {
+    if (err)
+      throw err;
+
+      const jsonString = JSON.stringify(rows);
+      res.send(jsonString);
+
+  });
+});
+
 app.listen(8000, () => {
   console.log('Server is running on http://localhost:8000');
 });
